@@ -17,27 +17,27 @@ export default function Portfolio() {
     <div className="flex justify-center  items-center min-h-screen w-full bg-[#050505] p-5 ">
       <div className="grid max-w-[1920px] grid-cols-12   w-full gap-4">
         {/* Column One content */}
-        <div className="col-span-12 md:col-span-3 flex flex-col gap-4 max-h-[800px]">
-          <StackCard className="lg:h-1/3" />
-          <WorksGallery className="lg:h-1/3" />
-          <ServiceSection className="lg:h-1/3" />
+        <div className="col-span-12 lg:col-span-3 md:col-span-5 flex flex-col gap-4 lg:max-h-[800px]">
+          <StackCard className="md:h-1/3" />
+          <WorksGallery className="md:h-1/3" />
+          <ServiceSection className="md:h-1/3" />
         </div>
 
         {/* Column Two content */}
-        <div className="col-span-12 md:col-span-4 flex flex-col gap-4 max-h-[800px]">
-          <StatisticsSection className="lg:h-3/12" />
-          <ProfileCard className="lg:h-5/12" />
-          <TechnologySection className="lg:h-4/12" />
+        <div className="col-span-12 lg:col-span-4 md:col-span-7 flex flex-col gap-4 lg:max-h-[800px]">
+          <StatisticsSection className="md:h-3/12 md:order-1 order-2" />
+          <ProfileCard className="md:h-5/12 lg:order-2 order-1" />
+          <TechnologySection className="md:h-4/12 lg:order-3 order-3" />
         </div>
 
-        <div className="col-span-12 md:col-span-5 grid grid-cols-1 md:grid-cols-2  gap-4">
-          <div className="flex flex-col gap-4 max-h-[800px] ">
-            <Testimonials className=" h-full " />
-            <FollowMe className="h-full " />
+        <div className="col-span-12 lg:col-span-5 grid grid-cols-1 md:grid-cols-2  gap-4">
+          <div className="flex flex-col gap-4 md:max-h-[800px]  ">
+            <Testimonials className=" md:h-full h-[400px]" />
+            <FollowMe className="md:h-full " />
           </div>
-          <div className="flex flex-col gap-4 max-h-[800px]">
-            <WorkProcess className=" lg:h-7/12" />
-            <WorkTogether className="lg:h-5/12" />
+          <div className="flex flex-col gap-4 md:max-h-[800px] ">
+            <WorkProcess className=" md:h-7/12" />
+            <WorkTogether className="md:h-5/12" />
           </div>
         </div>
       </div>
