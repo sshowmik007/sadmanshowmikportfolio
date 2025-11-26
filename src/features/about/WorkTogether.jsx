@@ -8,21 +8,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import {
-  FaLightbulb,
-  FaSitemap,
-  FaCode,
-  FaMobileAlt,
-  FaRocket,
-  FaFacebook,
-  FaInstagram,
-} from "react-icons/fa";
-import { ShineBorder } from "@/components/ui/shine-border";
-
 import { cn } from "@/lib/utils";
 import { MdOutlineConnectWithoutContact } from "react-icons/md";
 import { ArrowUpRight, Calendar, Contact } from "lucide-react";
-import { SiFiverr, SiGmail } from "react-icons/si";
+import { SiGmail } from "react-icons/si";
 const workflowData = [
   {
     icon: <SiGmail className="h-4 w-4 text-red-400" />,
@@ -38,35 +27,31 @@ const workflowData = [
 ];
 const WorkTogether = ({ className }) => {
   return (
-    <div
+    <Card
       className={cn(
-        "relative flex w-full flex-col  items-center justify-center overflow-hidden bg-[#101010]  md:shadow-xl",
+        "w-full rounded-xl bg-[#111]  border border-neutral-800 py-4 gap-0 overflow-hidden ",
         className
       )}
-      color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-      borderWidth={1}
     >
-      <Card className="bg-transparent  border-0 rounded-none px-0 w-full ">
-        <div className="flex flex-col px-0 py-4  w-full">
-          <CardHeader className="flex item-center  gap-0 self-center space-y-0 p-0">
-            <CardTitle className="text-base flex flex-col gap-2 items-center  text-neutral-400  ">
-              <div className="bg-gray-900 p-2 rounded-full border border-gray-600">
-                <MdOutlineConnectWithoutContact className="h-10 w-10 text-purple-500 " />
-              </div>
-              <p className="text-center text-xl">Let's Work Together</p>
-            </CardTitle>
-            <CardDescription className="self-center pt-0  font-semibold  text-center text-neutral-200">
-              Let's Make Magic Happen Together!
-            </CardDescription>
-          </CardHeader>
-          <div className="grid grid-cols-1   gap-2.5 mt-4">
-            {workflowData.map((stack, index) => (
-              <ContactButton key={index} icon={stack.icon} text={stack.text} />
-            ))}
+      <CardHeader className="space-y-0 p-0 mb-4  text-center">
+        <CardTitle className="flex flex-col justify-center items-center gap-2 text-sm text-neutral-300">
+          <div className="bg-gray-900 p-2 rounded-full border border-gray-600">
+            <MdOutlineConnectWithoutContact className="h-10 w-10 text-purple-500 " />
           </div>
-        </div>
-      </Card>
-    </div>
+        </CardTitle>
+        <CardDescription className="text-lg  font-semibold text-white">
+          Let's Work Together
+          <p className="text-sm  font-normal text-white">
+            Let's Make Magic Happen Together!
+          </p>
+        </CardDescription>
+      </CardHeader>
+      <div className="grid grid-cols-1 p-2 gap-2">
+        {workflowData.map((stack, index) => (
+          <ContactButton key={index} icon={stack.icon} text={stack.text} />
+        ))}
+      </div>
+    </Card>
   );
 };
 

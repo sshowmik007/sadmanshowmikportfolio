@@ -28,13 +28,13 @@ import {
   SiGraphql,
   SiApollographql,
 } from "react-icons/si";
+import { RiCodepenFill } from "react-icons/ri";
 import { Cloud, Code, GitBranch } from "lucide-react";
 import { VscVscode } from "react-icons/vsc";
-import { FaServicestack } from "react-icons/fa";
 
-import { ShineBorder } from "@/components/ui/shine-border";
 import Marquee from "@/components/ui/marquee";
-import InteractiveHoverButton from "@/components/ui/interactive-hover-button";
+
+import { StackCardBadge } from "@/components/ui/shared/StackCardBadge";
 
 const technologies = [
   // Core Frontend Technologies
@@ -149,57 +149,34 @@ const secondRow = technologies.slice(technologies.length / 2);
 
 const TechnologySection = ({ className }) => {
   return (
-    <div
+    <Card
       className={cn(
-        "relative flex w-full flex-col items-center justify-center overflow-hidden bg-[#101010] md:shadow-xl",
+        "w-full rounded-xl  bg-[#111] border border-neutral-800 py-4 gap-0 overflow-hidden relative",
         className
       )}
-      color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-      borderWidth={1}
     >
-      <Card className="bg-transparent border-0 rounded-none px-0  ">
-        <div className="flex flex-col px-0 py-4  w-full">
-          <CardHeader className="flex item-center  gap-0 self-center space-y-0 p-0">
-            <CardTitle className="text-base flex  gap-2 items-center  text-neutral-400  ">
-              <FaServicestack className="h-4 w-4 text-purple-500 " />
-              <p className="text-center">Technologies I used</p>
-            </CardTitle>
-            <CardDescription className="self-center pt-0 text-xl font-semibold  text-center text-neutral-200">
-              Technologies Suite
-            </CardDescription>
-          </CardHeader>
+      <CardHeader className="space-y-0 p-0 mb-4  text-center">
+        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
+          <RiCodepenFill className="h-4 w-4 text-purple-500 " />
+          <p>Technologies I used</p>
+        </CardTitle>
+        <CardDescription className="text-lg  font-semibold text-white">
+          Technologies Suite
+        </CardDescription>
+      </CardHeader>
 
-          <Marquee pauseOnHover className="[--duration:30s] w-full">
-            {firstRow.map((stack, index) => (
-              <StackCardBadge key={index} icon={stack.icon} name={stack.name} />
-            ))}
-          </Marquee>
-          <Marquee reverse pauseOnHover className="[--duration:30s] w-full">
-            {secondRow.map((stack, index) => (
-              <StackCardBadge key={index} icon={stack.icon} name={stack.name} />
-            ))}
-          </Marquee>
-        </div>
-      </Card>
-    </div>
+      <Marquee pauseOnHover className="[--duration:30s] p-1 ">
+        {firstRow.map((stack, index) => (
+          <StackCardBadge key={index} icon={stack.icon} name={stack.name} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:30s] p-1 ">
+        {secondRow.map((stack, index) => (
+          <StackCardBadge key={index} icon={stack.icon} name={stack.name} />
+        ))}
+      </Marquee>
+    </Card>
   );
 };
 
 export default TechnologySection;
-
-const StackCardBadge = ({ icon, name }) => {
-  return (
-    <Card className="relative w-48  flex overflow-hidden flex-col flex-1 cursor-pointer rounded-sm bg-zinc-900 border-0">
-      <CardContent className="flex gap-2 w-full relative px-3 py-1 rounded-sm border items-center border-solid border-neutral-800">
-        <div className="flex justify-center items-center px-3 w-10 h-10 rounded-xl bg-zinc-800">
-          <div className="flex justify-center items-center text-[#999999]">
-            {icon}
-          </div>
-        </div>
-        <div className="grow shrink my-auto text-sm font-semibold text-stone-300">
-          {name}
-        </div>
-      </CardContent>
-    </Card>
-  );
-};

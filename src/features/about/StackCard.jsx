@@ -9,6 +9,8 @@ import {
 
 import { FaCode, FaReact } from "react-icons/fa";
 import { SiTailwindcss, SiMobx, SiShadcnui } from "react-icons/si";
+import { StackCardBadge } from "@/components/ui/shared/StackCardBadge";
+import { cn } from "@/lib/utils";
 
 const stacksData = [
   {
@@ -31,7 +33,12 @@ const stacksData = [
 
 const StackCard = ({ className }) => {
   return (
-    <Card className="w-full rounded-xl bg-[#111] border border-neutral-800 p-4 gap-3 space-y-4">
+    <Card
+      className={cn(
+        "w-full rounded-xl bg-[#111] border border-neutral-800 py-4 gap-3 space-y-4 overflow-hidden relative",
+        className
+      )}
+    >
       <CardHeader className="space-y-0 p-0 mb-0  text-center">
         <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
           <FaCode className="h-4 w-4 text-purple-400" />
@@ -42,7 +49,7 @@ const StackCard = ({ className }) => {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="grid grid-cols-2 gap-3  p-0">
+      <CardContent className="grid grid-cols-2 gap-3 px-3 py-0">
         {stacksData.map((stack, index) => (
           <StackCardBadge key={index} icon={stack.icon} name={stack.name} />
         ))}
@@ -52,16 +59,3 @@ const StackCard = ({ className }) => {
 };
 
 export default StackCard;
-
-const StackCardBadge = ({ icon, name }) => {
-  return (
-    <div className="bg-zinc-900 border border-neutral-800 rounded-lg py-2 px-2.5 flex items-center gap-2 cursor-pointer hover:bg-zinc-800 transition">
-      <div className=" rounded-lg bg-zinc-800 flex items-center justify-center">
-        {icon}
-      </div>
-      <span className="text-sm font-medium  text-primary-foreground">
-        {name}
-      </span>
-    </div>
-  );
-};

@@ -1,17 +1,9 @@
 import * as React from "react";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 import { cn } from "@/lib/utils";
-import InteractiveHoverButton from "@/components/ui/interactive-hover-button";
-import { ShineBorder } from "@/components/ui/shine-border";
+
 import { Badge } from "@/components/ui/badge";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import {
@@ -19,42 +11,49 @@ import {
   Globe,
   Briefcase,
   School,
-  Smile,
   Building2,
   HomeIcon,
   Linkedin,
   ArrowUpRight,
+  Clock,
+  DownloadIcon,
 } from "lucide-react";
-import { FaGithub, FaTelegram, FaWhatsapp } from "react-icons/fa";
-import { SiFiverr, SiGmail } from "react-icons/si";
+import { FaGithub } from "react-icons/fa";
 
 import ProfilePic from "@/assets/Sadman Showmik Image.webp";
+import Image from "next/image";
+import TextType from "@/components/ui/shared/TextType";
+import { Button } from "@/components/ui/button";
 const profileData = {
   name: "Sadman Showmik",
   roles: ["Frontend Developer", "Software Engineer", "Designer"],
   badges: [
     {
-      icon: <MapPin size={14} />, // Lucide icon for location
+      icon: <MapPin size={14} />,
       text: "Bangladesh",
     },
     {
-      icon: <Globe size={14} />, // Lucide icon for languages
+      icon: <Globe size={14} />,
       text: "English & Bengali",
     },
     {
-      icon: <Briefcase size={14} />, // Lucide icon for profession
+      icon: <Briefcase size={14} />,
       text: "Software Engineer",
     },
     {
-      icon: <School size={14} />, // Lucide icon for education
+      icon: <Clock size={14} />,
+      text: "BST — UTC+6",
+    },
+    {
+      icon: <School size={14} />,
       text: "Brac University",
     },
     {
-      icon: <Building2 size={14} />, // Lucide icon for personality
+      icon: <Building2 size={14} />,
       text: "Zerodai",
     },
     {
-      icon: <HomeIcon size={14} />, // Lucide icon for personality
+      icon: <HomeIcon size={14} />,
       text: "Work From Home",
     },
   ],
@@ -72,64 +71,78 @@ const profileData = {
 
 function ProfileCard({ className }) {
   return (
-    <div
-      className={cn(
-        "relative flex w-full flex-col items-center justify-center overflow-hidden bg-[#101010] md:shadow-xl",
-        className
-      )}
-      color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-      borderWidth={1}
-    >
-      <Card className="bg-transparent border-0 rounded-none px-0  w-full flex ">
+    <>
+      <Card
+        className={cn(
+          "w-full rounded-xl bg-[#111] border border-neutral-800 px-2 py-4 gap-0 overflow-hidden relative",
+          className
+        )}
+      >
         <div className="flex flex-row  gap-5 items-center  ">
-          <img
+          <Image
             loading="lazy"
             src={ProfilePic}
             alt="Profile"
-            className="object-contain grow shrink-0 max-w-full rounded-2xl aspect-[0.93]  max-md:mt-5 w-[100px] h-[100px]"
+            className="object-contain h-24 w-24 rounded-2xl "
           />
 
-          <CardContent className="flex flex-col  px-0    py-0">
-            <div className="flex flex-col w-full ">
-              <div className="flex  justify-between items-start w-full">
-                <div className="flex flex-col ">
-                  <StatusBadge />
+          <CardContent className="flex flex-col flex-1  px-0 py-0 ">
+            <div className="flex flex-col flex-1  ">
+              <div className="flex  items-start  w-full">
+                <div className="flex flex-col  flex-1 ">
+                  <div className="flex items-center flex-1 justify-between w-full ">
+                    <StatusBadge />
+                    <div className="flex items-center ml-3 ">
+                      <p className=" text-xs text-primary-foreground font-normal">
+                        Resume
+                      </p>
+                      <Button
+                        className="cursor-pointer font-semibold text-purple-500 rounded-lg "
+                        variant="icon"
+                      >
+                        <DownloadIcon className="w-8 h-8" />
+                      </Button>
+                    </div>
+                  </div>
                   <div className=" text-3xl font-semibold text-neutral-200">
                     {profileData.name}
                   </div>
                 </div>
                 <div className="flex gap-2.5" />
               </div>
-              <div className="flex gap-2 self-start mt-2 text-lg">
-                <div className="flex flex-row gap-1 items-center leading-tight text-neutral-400">
-                  Im a{" "}
-                  <TypingAnimation
-                    className="text-violet-400 text-lg p-0 m-0"
-                    texts={profileData.roles} // Pass roles array
-                    duration={100}
-                    delay={1000}
-                  />
-                </div>
+
+              <div className="flex flex-row gap-1 items-center leading-tight text-neutral-400">
+                Im a
+                <TextType
+                  text={profileData.roles}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
+                  className="font-semibold text-purple-500"
+                />
               </div>
             </div>
           </CardContent>
         </div>
-      </Card>
-      <div className="flex overflow-hidden flex-col mt-4 w-full rounded-2xl bg-neutral-900 max-md:max-w-full">
-        <div className="flex flex-col py-4 pr-6 pl-2.5 w-full rounded-2xl border border-solid border-zinc-900 max-md:pr-5 max-md:max-w-full">
-          <div className="flex flex-wrap gap-2 w-full max-md:max-w-full">
+        <div className="flex overflow-hidden flex-col mt-4 w-full rounded-2xl bg-neutral-900 max-md:max-w-full">
+          <div className="flex flex-wrap gap-1 w-full max-md:max-w-full p-2   rounded-2xl border border-solid border-zinc-900  ">
             {profileData.badges.map((badge, index) => (
               <InfoBadge key={index} icon={badge.icon} text={badge.text} />
             ))}
           </div>
         </div>
-      </div>
-      <div className="grid  grid-cols-2 gap-2 mt-4  w-full">
-        {profileData.contacts.map((contact, index) => (
-          <ContactButton key={index} icon={contact.icon} text={contact.text} />
-        ))}
-      </div>
-    </div>
+        <div className="grid grid-cols-2 gap-2 mt-4 w-full">
+          {profileData.contacts.map((contact, index) => (
+            <ContactButton
+              key={index}
+              icon={contact.icon}
+              text={contact.text}
+            />
+          ))}
+        </div>
+      </Card>
+    </>
   );
 }
 
@@ -152,10 +165,9 @@ function StatusBadge() {
 
 function InfoBadge({ icon, text }) {
   return (
-    <Card className="flex relative gap-1 justify-center  rounded-sm bg-zinc-900 border-0 ]">
-      <Badge className="flex items-center gap-2 self-start py-1.5 bg-zinc-900 hover:bg-zinc-900 rounded-[40px] text-xs font-medium text-[#999999] ring-1 ring-inset ring-gray-800">
+    <Card className="flex relative p-0  justify-center  rounded-sm bg-zinc-900 border-0 ">
+      <Badge className="flex items-center gap-2 self-start py-1.5 bg-zinc-900 hover:bg-zinc-900 rounded-[40px] text-xs font-medium text-zinc-300 ring-1 ring-inset ring-gray-700">
         <span className="text-purple-600">{icon}</span>
-
         {text}
       </Badge>
     </Card>

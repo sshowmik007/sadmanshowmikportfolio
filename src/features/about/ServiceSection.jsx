@@ -1,9 +1,7 @@
 import React from "react";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -22,14 +20,13 @@ import {
   FaPalette,
   FaDatabase,
   FaCogs,
-  FaServicestack,
 } from "react-icons/fa";
 import { RiApps2AddFill } from "react-icons/ri";
 import { CloudCog, ShoppingCart } from "lucide-react";
 
-import { ShineBorder } from "@/components/ui/shine-border";
 import Marquee from "@/components/ui/marquee";
 import InteractiveHoverButton from "@/components/ui/interactive-hover-button";
+import { StackCardBadge } from "@/components/ui/shared/StackCardBadge";
 
 const services = [
   { icon: <FaLaptopCode />, name: "Web Development" },
@@ -55,7 +52,12 @@ const secondRow = services.slice(services.length / 2);
 
 const ServiceSection = ({ className }) => {
   return (
-    <Card className="w-full rounded-xl bg-[#111] border border-neutral-800 py-4 gap-0 overflow-hidden relative">
+    <Card
+      className={cn(
+        "w-full  rounded-xl bg-[#111] border border-neutral-800 py-4 gap-0 overflow-hidden relative",
+        className
+      )}
+    >
       <CardHeader className="space-y-0 p-0 mb-4  text-center">
         <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
           <RiApps2AddFill className="h-4 w-4 text-purple-500 " />
@@ -79,7 +81,7 @@ const ServiceSection = ({ className }) => {
 
       <InteractiveHoverButton
         text="View All Services"
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground bg-linear-to-r from-[#B3A4FD] via-[#A290FC] to-[#B3A4FD] w-60 rounded-sm "
+        className="absolute left-1/2 -translate-x-1/2 bottom-4 text-primary-foreground bg-linear-to-r ring-2 ring-zinc-600 border-0 from-[#B3A4FD] via-[#A290FC] to-[#B3A4FD] w-44 rounded-sm"
         link="/services"
       />
     </Card>
@@ -87,20 +89,3 @@ const ServiceSection = ({ className }) => {
 };
 
 export default ServiceSection;
-
-const StackCardBadge = ({ icon, name }) => {
-  return (
-    <Card className="relative m-0 flex overflow-hidden  flex-col flex-1 cursor-pointer rounded-sm bg-transparent p-0 border-0">
-      <CardContent className="flex gap-2 bg-zinc-900 relative px-3 py-1 rounded-sm border items-center border-solid border-neutral-800">
-        <div className="flex justify-center items-center px-3 w-10 h-10 rounded-xl bg-zinc-800">
-          <div className="flex justify-center items-center text-[#999999]">
-            {icon}
-          </div>
-        </div>
-        <div className="grow shrink my-auto text-sm font-semibold text-stone-300">
-          {name}
-        </div>
-      </CardContent>
-    </Card>
-  );
-};

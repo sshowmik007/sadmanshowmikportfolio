@@ -1,9 +1,7 @@
 import * as React from "react";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -13,7 +11,7 @@ import { Briefcase } from "lucide-react";
 
 import Marquee from "@/components/ui/marquee";
 import InteractiveHoverButton from "@/components/ui/interactive-hover-button";
-import GradientButton from "@/components/ui/shared/GradientButton";
+
 import Image from "next/image";
 
 const reviews = [
@@ -56,6 +54,39 @@ const reviews = [
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
+
+export function WorksGallery({ className }) {
+  return (
+    <Card
+      className={cn(
+        "w-full  rounded-xl bg-[#111] border border-neutral-800 py-4 gap-3 space-y-4 overflow-hidden relative",
+        className
+      )}
+    >
+      <CardHeader className="space-y-0 p-0 mb-0  text-center">
+        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
+          <Briefcase className="h-4 w-4 text-purple-500 " />
+          <p>Projects</p>
+        </CardTitle>
+        <CardDescription className="text-lg  font-semibold text-white">
+          Works Gallery
+        </CardDescription>
+      </CardHeader>
+      <Marquee pauseOnHover className="[--duration:20s]  ">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      {/* <GradientButton text="View Works" className="absolute bottom-4" /> */}
+      <InteractiveHoverButton
+        text="View Works"
+        link="/works"
+        className="absolute left-1/2 -translate-x-1/2 bottom-4 text-primary-foreground bg-linear-to-r ring-2 ring-zinc-600 border-0 from-[#B3A4FD] via-[#A290FC] to-[#B3A4FD] w-44 rounded-sm"
+      />
+    </Card>
+  );
+}
+
 const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
@@ -84,29 +115,3 @@ const ReviewCard = ({ img, name, username, body }) => {
     </figure>
   );
 };
-export function WorksGallery({ className }) {
-  return (
-    <Card className="w-full rounded-xl bg-[#111] border border-neutral-800 py-4 gap-3 space-y-4 overflow-hidden relative">
-      <CardHeader className="space-y-0 p-0 mb-0  text-center">
-        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
-          <Briefcase className="h-4 w-4 text-purple-500 " />
-          <p>Projects</p>
-        </CardTitle>
-        <CardDescription className="text-lg  font-semibold text-white">
-          Works Gallery
-        </CardDescription>
-      </CardHeader>
-      <Marquee pauseOnHover className="[--duration:20s]  ">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      {/* <GradientButton text="View Works" className="absolute bottom-4" /> */}
-      <InteractiveHoverButton
-        text="View Works"
-        link="/works"
-        className="absolute left-1/2 -translate-x-1/2 bottom-4 text-primary-foreground bg-linear-to-r from-[#B3A4FD] via-[#A290FC] to-[#B3A4FD] w-44 rounded-sm"
-      />
-    </Card>
-  );
-}
