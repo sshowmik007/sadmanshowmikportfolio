@@ -12,7 +12,7 @@ import FollowMe from "@/features/about/FollowMe";
 import WorkProcess from "@/features/about/WorkProcess";
 import WorkTogether from "@/features/about/WorkTogether";
 
-export default function Portfolio() {
+export default function ServicePage() {
   return (
     <div className="flex justify-center  items-center min-h-screen w-full bg-[#050505] p-5 ">
       <div className="grid max-w-[1920px] grid-cols-12   w-full gap-4 ">

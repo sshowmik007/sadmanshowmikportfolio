@@ -44,36 +44,45 @@
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
-  --animate-shine: shine var(--duration) infinite linear
-;
+  --animate-shine: shine var(--duration) infinite linear;
   @keyframes shine {
-  0% {
-    background-position: 0% 0%;}
-  50% {
-    background-position: 100% 100%;}
-  to {
-    background-position: 0% 0%;}}
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
+    }
+  }
   --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
   @keyframes blink-cursor {
-  0%, 49% {
-    opacity: 1;}
-  50%, 100% {
-    opacity: 0;}}}
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+}
 
 :root {
   --radius: 0.625rem;
@@ -150,5 +159,27 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradientButton {
+    background: radial-gradient(
+      73.9583368388574% 281.24998669243456% at 19.166664290422876%
+        82.29165899011139%,
+      #a391fd 0%,
+      rgb(147, 126, 252) 49.312299489974976%
+    );
+    color: #2d2d2d;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .gradientButton:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  .gradientButton:active {
+    transform: translateY(0px) scale(0.98);
   }
 }

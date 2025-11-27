@@ -59,11 +59,11 @@ const ServiceSection = ({ className }) => {
       )}
     >
       <CardHeader className="space-y-0 p-0 mb-4  text-center">
-        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
-          <RiApps2AddFill className="h-4 w-4 text-purple-500 " />
+        <CardTitle className="flex justify-center items-center gap-2 text-[clamp(0.8rem,1.2vw,1rem)] text-neutral-300">
+          <RiApps2AddFill className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)]text-purple-500 " />
           <p>Services</p>
         </CardTitle>
-        <CardDescription className="text-lg  font-semibold text-white">
+        <CardDescription className="text-[clamp(1rem,1.8vw,1.4rem)]  font-semibold text-white">
           Solutions Suite
         </CardDescription>
       </CardHeader>
@@ -81,7 +81,7 @@ const ServiceSection = ({ className }) => {
 
       <InteractiveHoverButton
         text="View All Services"
-        className="absolute left-1/2 -translate-x-1/2 bottom-4 text-primary-foreground bg-linear-to-r ring-2 ring-zinc-600 border-0 from-[#B3A4FD] via-[#A290FC] to-[#B3A4FD] w-44 rounded-sm"
+        className="absolute left-1/2 -translate-x-1/2 bottom-4 text-[clamp(0.8rem,1.2vw,1rem)] gradientButton ring-2 ring-zinc-600 border-0  w-44 rounded-sm"
         link="/services"
       />
     </Card>

@@ -64,11 +64,11 @@ export function WorksGallery({ className }) {
       )}
     >
       <CardHeader className="space-y-0 p-0 mb-0  text-center">
-        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
-          <Briefcase className="h-4 w-4 text-purple-500 " />
+        <CardTitle className="flex justify-center items-center gap-2 text-[clamp(0.8rem,1.2vw,1rem)] text-neutral-300">
+          <Briefcase className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-purple-500 " />
           <p>Projects</p>
         </CardTitle>
-        <CardDescription className="text-lg  font-semibold text-white">
+        <CardDescription className="text-[clamp(1rem,1.8vw,1.4rem)]  font-semibold text-white">
           Works Gallery
         </CardDescription>
       </CardHeader>
@@ -81,7 +81,7 @@ export function WorksGallery({ className }) {
       <InteractiveHoverButton
         text="View Works"
         link="/works"
-        className="absolute left-1/2 -translate-x-1/2 bottom-4 text-primary-foreground bg-linear-to-r ring-2 ring-zinc-600 border-0 from-[#B3A4FD] via-[#A290FC] to-[#B3A4FD] w-44 rounded-sm"
+        className="absolute left-1/2 -translate-x-1/2 bottom-4  ring-2  ring-zinc-600 border-0 gradientButton w-44 rounded-sm"
       />
     </Card>
   );
@@ -105,13 +105,17 @@ const ReviewCard = ({ img, name, username, body }) => {
           src={img}
         />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
+          <figcaption className="text-[clamp(0.8rem,1.2vw,1rem)] font-medium dark:text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          <p className="text-[clamp(0.7rem,1vw,0.85rem)] font-medium dark:text-white/40">
+            {username}
+          </p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-2 text-[clamp(0.8rem,1.2vw,1rem)]">
+        {body}
+      </blockquote>
     </figure>
   );
 };

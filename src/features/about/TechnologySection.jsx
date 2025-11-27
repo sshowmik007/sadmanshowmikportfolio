@@ -156,11 +156,11 @@ const TechnologySection = ({ className }) => {
       )}
     >
       <CardHeader className="space-y-0 p-0 mb-4  text-center">
-        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
-          <RiCodepenFill className="h-4 w-4 text-purple-500 " />
+        <CardTitle className="flex justify-center items-center gap-2 text-[clamp(0.8rem,1.2vw,1rem)] text-neutral-300">
+          <RiCodepenFill className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-purple-500 " />
           <p>Technologies I used</p>
         </CardTitle>
-        <CardDescription className="text-lg  font-semibold text-white">
+        <CardDescription className="text-[clamp(1rem,1.8vw,1.4rem)]  font-semibold text-white">
           Technologies Suite
         </CardDescription>
       </CardHeader>

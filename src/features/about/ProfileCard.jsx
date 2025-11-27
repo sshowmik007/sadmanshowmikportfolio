@@ -93,7 +93,7 @@ function ProfileCard({ className }) {
                   <div className="flex items-center flex-1 justify-between w-full ">
                     <StatusBadge />
                     <div className="flex items-center ml-3 ">
-                      <p className=" text-xs text-primary-foreground font-normal">
+                      <p className="text-[clamp(0.75rem,1vw,0.9rem)] text-primary-foreground font-normal">
                         Resume
                       </p>
                       <Button
@@ -104,14 +104,14 @@ function ProfileCard({ className }) {
                       </Button>
                     </div>
                   </div>
-                  <div className=" text-3xl font-semibold text-neutral-200">
+                  <div className="  text-[clamp(1.4rem,2.5vw,2rem)] font-semibold text-neutral-200">
                     {profileData.name}
                   </div>
                 </div>
                 <div className="flex gap-2.5" />
               </div>
 
-              <div className="flex flex-row gap-1 items-center leading-tight text-neutral-400">
+              <div className="flex flex-row gap-1 items-center leading-tight text-[clamp(0.85rem,1.4vw,1rem)] text-neutral-400">
                 Im a
                 <TextType
                   text={profileData.roles}
@@ -119,7 +119,7 @@ function ProfileCard({ className }) {
                   pauseDuration={1500}
                   showCursor={true}
                   cursorCharacter="|"
-                  className="font-semibold text-purple-500"
+                  className="font-semibold text-purple-500 text-[clamp(0.9rem,1.5vw,1.1rem)]"
                 />
               </div>
             </div>
@@ -150,7 +150,7 @@ export default ProfileCard;
 
 function StatusBadge() {
   return (
-    <Badge className="flex overflow-hidden relative gap-2 self-start py-1.5 bg-zinc-900 hover:bg-zinc-900 rounded-[40px] text-xs font-medium text-[#999999] ring-1 ring-inset ring-gray-800">
+    <Badge className="flex overflow-hidden relative gap-2 self-start py-1.5 bg-zinc-900 hover:bg-zinc-900 rounded-[40px]text-[clamp(0.75rem,1vw,0.9rem)] font-medium text-[#999999] ring-1 ring-inset ring-gray-800">
       <svg
         viewBox="0 0 6 6"
         aria-hidden="true"
@@ -166,8 +166,10 @@ function StatusBadge() {
 function InfoBadge({ icon, text }) {
   return (
     <Card className="flex relative p-0  justify-center  rounded-sm bg-zinc-900 border-0 ">
-      <Badge className="flex items-center gap-2 self-start py-1.5 bg-zinc-900 hover:bg-zinc-900 rounded-[40px] text-xs font-medium text-zinc-300 ring-1 ring-inset ring-gray-700">
-        <span className="text-purple-600">{icon}</span>
+      <Badge className="flex items-center gap-2 self-start py-1.5 bg-zinc-900 hover:bg-zinc-900 rounded-[40px]text-[clamp(0.75rem,1vw,0.9rem)] font-medium text-zinc-300 ring-1 ring-inset ring-gray-700 rounded-sm">
+        <span className="text-purple-600 text-[clamp(1rem,2vw,1.4rem)] ">
+          {icon}
+        </span>
         {text}
       </Badge>
     </Card>
@@ -178,8 +180,10 @@ function ContactButton({ icon, text }) {
   return (
     <button className="group flex bg-neutral-900 gap-2 relative px-3 py-2 rounded-sm border items-center justify-between border-solid border-neutral-800 hover:border-purple-600">
       <div className="flex items-center gap-3">
-        <span className="text-purple-600 aspect-square">{icon}</span>
-        <div className="self-end text-lg font-medium text-slate-400">
+        <span className="text-purple-600 text-[clamp(1rem,2vw,1.4rem)]  aspect-square">
+          {icon}
+        </span>
+        <div className="self-end text-[clamp(0.9rem,1.6vw,1.2rem)] font-medium text-slate-400">
           {text}
         </div>
       </div>

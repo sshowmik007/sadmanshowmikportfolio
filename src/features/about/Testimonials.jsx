@@ -60,16 +60,16 @@ export function Testimonials({ className }) {
       )}
     >
       <CardHeader className="space-y-0 p-0 mb-4  text-center">
-        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
-          <Briefcase className="h-4 w-4 text-purple-500 " />
+        <CardTitle className="flex justify-center items-center gap-2 text-[clamp(0.8rem,1.2vw,1rem)] text-neutral-300">
+          <Briefcase className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-purple-500 " />
           <p className="text-center">Testimonials</p>
         </CardTitle>
-        <CardDescription className="self-center  text-xl font-semibold p-0 text-center text-neutral-200">
+        <CardDescription className="self-center  text-[clamp(1.1rem,2vw,1.5rem)] font-semibold p-0 text-center text-neutral-200">
           Rave Reviews Showcase
         </CardDescription>
       </CardHeader>
 
-      <Marquee pauseOnHover vertical className="[--duration:20s]">
+      <Marquee vertical pauseOnHover={false} className="[--duration:20s] ">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
         ))}
@@ -94,13 +94,17 @@ const ReviewCard = ({ img, name, username, body }) => {
           src={img}
         />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-white">
+          <figcaption className="text-[clamp(0.8rem,1.2vw,1rem)] font-medium text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium text-white/40">{username}</p>
+          <p className="text-[clamp(0.7rem,1vw,0.85rem)] font-medium text-white/40">
+            {username}
+          </p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm text-slate-200">{body}</blockquote>
+      <blockquote className="mt-2 text-[clamp(0.8rem,1.2vw,1rem)] text-slate-200">
+        {body}
+      </blockquote>
     </figure>
   );
 };

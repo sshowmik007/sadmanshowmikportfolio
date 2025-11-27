@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/lib/utils";
 import {
   Card,
   CardContent,
@@ -8,14 +9,23 @@ import {
 } from "@/components/ui/card";
 
 import { FaCode, FaReact } from "react-icons/fa";
-import { SiTailwindcss, SiMobx, SiShadcnui } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiMobx,
+  SiShadcnui,
+  SiNextdotjs,
+  SiReactquery,
+} from "react-icons/si";
 import { StackCardBadge } from "@/components/ui/shared/StackCardBadge";
-import { cn } from "@/lib/utils";
 
 const stacksData = [
   {
     icon: <FaReact className="h-6 w-6 text-blue-500" />,
     name: "React JS",
+  },
+  {
+    icon: <SiNextdotjs className="h-6 w-6 text-white/70" />,
+    name: "Next JS",
   },
   {
     icon: <SiShadcnui className="h-6 w-6 text-green-500" />,
@@ -29,6 +39,10 @@ const stacksData = [
     icon: <SiMobx className="h-6 w-6 text-orange-500" />,
     name: "MOB X",
   },
+  {
+    icon: <SiReactquery className="h-6 w-6 text-red-500" />,
+    name: "Tanstack Query",
+  },
 ];
 
 const StackCard = ({ className }) => {
@@ -40,11 +54,12 @@ const StackCard = ({ className }) => {
       )}
     >
       <CardHeader className="space-y-0 p-0 mb-0  text-center">
-        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
-          <FaCode className="h-4 w-4 text-purple-400" />
+        <CardTitle className="flex justify-center items-center gap-2 text-[clamp(0.8rem,1.2vw,1rem)] text-neutral-300">
+          <FaCode className="text-purple-400 h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)]" />
+
           <p>My Stacks</p>
         </CardTitle>
-        <CardDescription className="text-lg  font-semibold text-white">
+        <CardDescription className="font-semibold text-white text-[clamp(1rem,1.8vw,1.4rem)]">
           Tech Arsenal
         </CardDescription>
       </CardHeader>

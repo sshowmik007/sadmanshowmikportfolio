@@ -15,18 +15,24 @@ import { SiFiverr } from "react-icons/si";
 import { StackCardBadge } from "@/components/ui/shared/StackCardBadge";
 const workflowData = [
   {
-    icon: <FaFacebook className="h-4 w-4 text-blue-400" />,
+    icon: (
+      <FaFacebook className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-blue-400" />
+    ),
     name: "Sadman Showmik",
     description: "Understanding client needs and defining the project scope.",
   },
   {
-    icon: <InstagramLogoIcon className="h-4 w-4 text-red-400" />,
+    icon: (
+      <InstagramLogoIcon className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-red-400" />
+    ),
     name: "Sadman Showmik",
     description:
       "Designing the project structure, choosing the right tools, and planning the development phases.",
   },
   {
-    icon: <LinkedInLogoIcon className="h-4 w-4 text-blue-400" />,
+    icon: (
+      <LinkedInLogoIcon className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-blue-400" />
+    ),
     name: "Linkedin",
     description:
       "Building reusable components, integrating APIs, and managing state effectively using tools like React, Redux, or MobX.",
@@ -47,11 +53,11 @@ const FollowMe = ({ className }) => {
       )}
     >
       <CardHeader className="space-y-0 p-0 mb-4 text-center">
-        <CardTitle className="flex justify-center items-center gap-2 text-sm text-neutral-300">
-          <FaCode className="h-4 w-4 text-purple-500 " />
+        <CardTitle className="flex justify-center items-center gap-2 text-[clamp(0.8rem,1.2vw,1rem)] text-neutral-300">
+          <FaCode className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-purple-500 " />
           <p className="text-center">Follow Me</p>
         </CardTitle>
-        <CardDescription className="text-lg font-semibold text-white">
+        <CardDescription className="text-[clamp(1rem,1.8vw,1.4rem)] font-semibold text-white">
           Online Presence
         </CardDescription>
       </CardHeader>
