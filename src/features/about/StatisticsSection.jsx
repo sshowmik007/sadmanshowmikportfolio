@@ -50,8 +50,10 @@ const StatisticsSection = ({ className }) => {
           ) : (
             <Card className="bg-transparent border-0 rounded-none p-0 ">
               <CardHeader className="flex flex-col items-center space-y-2 pt-2 pb-3 text-center px-0">
-                <CardTitle className="text-[clamp(4rem,4vw,4rem)] p-0 flex items-center font-semibold text-transparent bg-linear-to-t from-black/10 to-[#999999] bg-clip-text">
-                  {stat.value}
+                <CardTitle className=" p-0 flex items-center  text-transparent bg-linear-to-t from-black/10 to-[#999999] bg-clip-text">
+                  <p className="text-[clamp(4rem,4vw,4rem)] font-semibold">
+                    {stat.value}
+                  </p>
                   {stat.showPlus !== false && (
                     <span className="text-[clamp(1rem,2vw,1.75rem)] text-purple-500">
                       +

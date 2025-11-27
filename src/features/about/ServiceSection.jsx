@@ -60,7 +60,7 @@ const ServiceSection = ({ className }) => {
     >
       <CardHeader className="space-y-0 p-0 mb-4  text-center">
         <CardTitle className="flex justify-center items-center gap-2 text-[clamp(0.8rem,1.2vw,1rem)] text-neutral-300">
-          <RiApps2AddFill className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)]text-purple-500 " />
+          <RiApps2AddFill className="h-[clamp(0.9rem,1.4vw,1.1rem)] w-[clamp(0.9rem,1.4vw,1.1rem)] text-purple-500 " />
           <p>Services</p>
         </CardTitle>
         <CardDescription className="text-[clamp(1rem,1.8vw,1.4rem)]  font-semibold text-white">
